@@ -1,111 +1,215 @@
+/* ==================== VARIABLE & GLOBAL STYLES ==================== */
 :root {
-  --bg-dark: #0a192f;
-  --bg-card: #112240;
-  --bg-card-alt: #0d1b2a;
-  --text-gold: #ffc107;
-  --text-main: #e6f1ff;
+  --bg-main: #061121;        /* Warna latar belakang utama */
+  --bg-card: #0b1a30;        /* Warna kartu & kontainer */
+  --bg-card-alt: #081426;    /* Warna seksi alternatif */
+  --gold-primary: #ffb703;   /* Warna kuning/emas tombol & teks */
+  --gold-hover: #e0a000;     /* Warna tombol saat di-hover */
+  --text-main: #ffffff;      /* Teks putih */
+  --text-muted: #94a3b8;     /* Teks abu-abu muda */
+  --border-color: #1e293b;  /* Warna garis tepi */
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-main) !important;
   color: var(--text-main);
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
+/* ==================== NAVBAR ==================== */
 header {
-  background-color: rgba(10, 25, 47, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-color);
 }
 
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--gold-primary) !important;
+}
+
+.search-input {
+  background-color: #0d1f3a !important;
+  border: 1px solid var(--border-color) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ==================== BUTTONS ==================== */
 .btn-gold {
-  background-color: var(--text-gold);
-  color: #000;
+  background-color: var(--gold-primary) !important;
+  color: #000000 !important;
   font-weight: 600;
-  border: none;
+  border: none !important;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .btn-gold:hover {
-  background-color: #e0a800;
-  color: #000;
+  background-color: var(--gold-hover) !important;
+  transform: translateY(-2px);
 }
 
 .btn-outline-custom {
-  border: 1px solid var(--text-gold);
-  color: var(--text-gold);
+  background-color: transparent !important;
+  border: 1px solid var(--gold-primary) !important;
+  color: var(--gold-primary) !important;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-custom:hover {
-  background-color: var(--text-gold);
-  color: #000;
+  background-color: var(--gold-primary) !important;
+  color: #000000 !important;
 }
 
+/* ==================== HERO / CAROUSEL ==================== */
+.hero-carousel {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.carousel-caption-custom {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 85%;
+  z-index: 2;
+}
+
+/* ==================== ABOUT SECTION ==================== */
+.about-img {
+  width: 100%;
+  max-width: 260px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 2px solid var(--border-color);
+}
+
+/* ==================== CARDS & SERVICES ==================== */
 .card-service {
   background-color: var(--bg-card);
-  border: 1px solid #1e3a8a;
-  border-radius: 12px;
-  padding: 2rem;
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card-service:hover {
   transform: translateY(-5px);
+  border-color: var(--gold-primary);
 }
 
-.about-img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 16px;
-  object-fit: cover;
+.badge-price {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(255, 183, 3, 0.15);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
 }
 
+/* ==================== GALLERY ==================== */
 .gallery-img {
   width: 100%;
-  height: 220px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
 }
 
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* ==================== TESTIMONIALS ==================== */
 .testimonial-card {
   background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid #1e3a8a;
 }
 
 .avatar-img {
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 0.5rem;
+  border: 2px solid var(--gold-primary);
 }
 
-.cta-section {
-  padding: 4rem 1rem;
-  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card-alt) 100%);
+/* ==================== TITLES & SUBTITLES ==================== */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
 }
 
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ==================== FOOTER ==================== */
 footer {
-  background-color: #050c1a;
-  color: #8892b0;
+  background-color: #030812;
+  border-top: 1px solid var(--border-color);
 }
 
 footer a {
-  color: #8892b0;
+  color: var(--text-muted);
   text-decoration: none;
+  font-size: 0.9rem;
 }
 
 footer a:hover {
-  color: var(--text-gold);
+  color: var(--gold-primary);
 }
 
 .social-icons a {
-  color: #8892b0;
+  color: var(--text-muted);
   font-size: 1.2rem;
   margin-right: 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: var(--text-gold);
+  color: var(--gold-primary);
 }
